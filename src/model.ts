@@ -3,12 +3,14 @@ import { Schema, model, Document } from "mongoose";
 export interface Model3D extends Document {
     name: string,
     fileUrl: string
+    fileSize:string
 }
 
 const modelSchema = new Schema<Model3D>(
     {
         name: {type: String, required: true},
-        fileUrl: {type: String, required: true}
+        fileUrl: {type: String, required: true},
+        fileSize: {type: String, required: true}
     }, {timestamps: true}
 )
 
