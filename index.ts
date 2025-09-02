@@ -7,7 +7,12 @@ import router from "./src/route.js"
 dotenv.config()
 const app = express()
 app.use(express.json())
-app.use(cors())
+app.use(cors({
+    origin:["http://localhost:5173", "https://my3dmodel.vercel.app"],
+    methods:["GET", "POST", "PUT", "DELETE"],
+    credentials: true,
+    allowedHeaders: ["Content-Type", "Authorization"]
+}))
 
 app.use("/", router)
 
